@@ -1,0 +1,226 @@
+/* Estilo del contenedor y la tarjeta */
+
+
+body {
+  margin: 0;
+ 
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  inset: 40% 60% 0 -60%;
+  background: radial-gradient(circle, #0a0a0a, transparent 70%);
+  opacity: 0.2;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Navbar */
+nav {
+  position: relative;
+  padding: 40px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  gap: 40px;
+}
+
+nav ul li button {
+  background: none;
+  border: none;
+  color: rgb(8, 8, 8);
+  font-size: 1.1em;
+  cursor: pointer;
+  padding: 10px 15px;
+  position: relative;
+  transition: 0.3s;
+}
+
+/* Efecto hover con línea brillante */
+nav ul li button::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, #0062ff, #64b3f8);
+  transition: 0.4s ease;
+  transform: translateX(-50%);
+  border-radius: 2px;
+  box-shadow: 0 0 8px #2a015d;
+}
+
+nav ul li button:hover::after,
+nav ul li.active button::after {
+  width: 100%;
+}
+
+/* Active button scale */
+nav ul li button:hover,
+nav ul li.active button {
+  transform: scale(1.1);
+  color: #6e8eee;
+}
+.card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: opacity 0.5s ease;
+}
+
+.card-body {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  height: 100%;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  overflow-y: auto;
+}
+
+.card:hover img {
+  opacity: 0;
+}
+
+.card:hover .card-body {
+  opacity: 1;
+  transform: translateY(0);
+}
+    
+      
+    
+     .footer-1 {
+      padding: 3rem 2rem;
+      background-color: #48a5e7;
+      color: white;
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .footer-5 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .footer-4 h2,
+    .footer-2 h4,
+    .footer-3 h4 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      color: #04111e;
+      animation: slideLeft 1s ease-in-out;
+    }
+
+    @keyframes slideLeft {
+      from { opacity: 0; transform: translateX(-50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    .footer-4 input[type="email"] {
+      padding: 10px;
+      width: 60%;
+      max-width: 300px;
+      border: none;
+      border-radius: 5px;
+      margin: 10px 0;
+      background-color: white;
+      color: black;
+      transition: transform 0.3s ease;
+    }
+
+    .footer-4 input[type="email"]:focus {
+      outline: none;
+      transform: scale(1.05);
+    }
+
+    .footer-4 p,
+    .footer-3 p,
+    .footer-2 ul li {
+      font-size: 1rem;
+      animation: slideUp 0.8s ease forwards;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .social-icons {
+      margin-top: 15px;
+    }
+
+    .social-icons a {
+      display: inline-block;
+      margin: 0 10px;
+      opacity: 0;
+      animation: popUp 0.6s ease-out forwards;
+    }
+
+    .social-icons a:nth-child(1) { animation-delay: 0.2s; }
+    .social-icons a:nth-child(2) { animation-delay: 0.4s; }
+    .social-icons a:nth-child(3) { animation-delay: 0.6s; }
+    .social-icons a:nth-child(4) { animation-delay: 0.8s; }
+
+    @keyframes popUp {
+      from { transform: scale(0.5); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .social-icons img {
+      width: 32px;
+      height: 32px;
+      filter: brightness(0.9);
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .social-icons a:hover img {
+      transform: scale(1.2);
+      filter: brightness(1.3);
+    }
+
+    .btn-enviar {
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      margin-top: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .btn-enviar:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #007BFF;
+    }
